@@ -1,0 +1,261 @@
+<html>
+    <head> <title>Red de Temas y Áreas de estudio: Tesinas de la Licenciatura en Turismo (DGyT-UNS)</title>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 700px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+             #loadingBar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width: 100%;
+                 height: 700px;
+                 background-color:rgba(200,200,200,0.8);
+                 -webkit-transition: all 0.5s ease;
+                 -moz-transition: all 0.5s ease;
+                 -ms-transition: all 0.5s ease;
+                 -o-transition: all 0.5s ease;
+                 transition: all 0.5s ease;
+                 opacity:1;
+             }
+
+             #bar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width:20px;
+                 height:20px;
+                 margin:auto auto auto auto;
+                 border-radius:11px;
+                 border:2px solid rgba(30,30,30,0.05);
+                 background: rgb(0, 173, 246); /* Old browsers */
+                 box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+             }
+
+             #border {
+                 position:absolute;
+                 top:10px;
+                 left:10px;
+                 width:500px;
+                 height:23px;
+                 margin:auto auto auto auto;
+                 box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+                 border-radius:10px;
+             }
+
+             #text {
+                 position:absolute;
+                 top:8px;
+                 left:530px;
+                 width:30px;
+                 height:50px;
+                 margin:auto auto auto auto;
+                 font-size:22px;
+                 color: #000000;
+             }
+
+             div.outerBorder {
+                 position:relative;
+                 top:400px;
+                 width:600px;
+                 height:44px;
+                 margin:auto auto auto auto;
+                 border:8px solid rgba(0,0,0,0.1);
+                 background: rgb(252,252,252); /* Old browsers */
+                 background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+                 background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+                 background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+                 background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+                 background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+                 border-radius:72px;
+                 box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+             }
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <h2 style="text-align:center; color:#2c3e50;">Red de Temas y Áreas de estudio: Tesinas de la Licenciatura en Turismo (DGyT-UNS)</h2>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+            <div id="loadingBar">
+              <div class="outerBorder">
+                <div id="text">0%</div>
+                <div id="border">
+                  <div id="bar"></div>
+                </div>
+              </div>
+            </div>
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#87CEFA", "id": "An\u00e1lisis de turismo cultural y patrimonial", "label": "An\u00e1lisis de turismo cultural y patrimonial", "shape": "dot", "size": 10, "title": "Tema dominante: An\u00e1lisis de turismo cultural y patrimonial"}, {"color": "pink", "id": "COLONIA SANTA MARIA", "label": "COLONIA SANTA MARIA", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: COLONIA SANTA MARIA"}, {"color": "pink", "id": "SIERRA DE LA VENTANA", "label": "SIERRA DE LA VENTANA", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: SIERRA DE LA VENTANA"}, {"color": "pink", "id": "CARHUE", "label": "CARHUE", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: CARHUE"}, {"color": "pink", "id": "BAHIA BLANCA", "label": "BAHIA BLANCA", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: BAHIA BLANCA"}, {"color": "pink", "id": "VILLA MITRE", "label": "VILLA MITRE", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: VILLA MITRE"}, {"color": "pink", "id": "PEHUEN CO", "label": "PEHUEN CO", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: PEHUEN CO"}, {"color": "pink", "id": "LA HOLANDA", "label": "LA HOLANDA", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: LA HOLANDA"}, {"color": "pink", "id": "NECOCHEA", "label": "NECOCHEA", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: NECOCHEA"}, {"color": "pink", "id": "SUDOESTE BONAERENSE", "label": "SUDOESTE BONAERENSE", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: SUDOESTE BONAERENSE"}, {"color": "pink", "id": "PUNTA ALTA", "label": "PUNTA ALTA", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: PUNTA ALTA"}, {"color": "pink", "id": "SUDESTE PAMPEANO", "label": "SUDESTE PAMPEANO", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: SUDESTE PAMPEANO"}, {"color": "pink", "id": "USHUAIA", "label": "USHUAIA", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: USHUAIA"}, {"color": "pink", "id": "NO DETECTADO", "label": "NO DETECTADO", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: NO DETECTADO"}, {"color": "pink", "id": "CARMEN DE PATAGONES", "label": "CARMEN DE PATAGONES", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: CARMEN DE PATAGONES"}, {"color": "pink", "id": "INGENIERO WHITE", "label": "INGENIERO WHITE", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: INGENIERO WHITE"}, {"color": "pink", "id": "MACACH\u00cdN", "label": "MACACH\u00cdN", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: MACACH\u00cdN"}, {"color": "pink", "id": "CORONEL SUAREZ", "label": "CORONEL SUAREZ", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: CORONEL SUAREZ"}, {"color": "pink", "id": "TRENQUE LAUQUEN", "label": "TRENQUE LAUQUEN", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: TRENQUE LAUQUEN"}, {"color": "pink", "id": "EL CONDOR", "label": "EL CONDOR", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: EL CONDOR"}, {"color": "#87CEFA", "id": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "label": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "shape": "dot", "size": 10, "title": "Tema dominante: Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos"}, {"color": "pink", "id": "PUAN", "label": "PUAN", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: PUAN"}, {"color": "pink", "id": "EL CAMPITO", "label": "EL CAMPITO", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: EL CAMPITO"}, {"color": "pink", "id": "CHOELE CHOEL", "label": "CHOELE CHOEL", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: CHOELE CHOEL"}, {"color": "pink", "id": "SANTA ROSA", "label": "SANTA ROSA", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: SANTA ROSA"}, {"color": "pink", "id": "ESTANCIA LA DULCE", "label": "ESTANCIA LA DULCE", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: ESTANCIA LA DULCE"}, {"color": "pink", "id": "COMARCA VIEDMA-PATAGONES", "label": "COMARCA VIEDMA-PATAGONES", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: COMARCA VIEDMA-PATAGONES"}, {"color": "pink", "id": "LA ARGENTINA", "label": "LA ARGENTINA", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: LA ARGENTINA"}, {"color": "pink", "id": "PARTIDO DE PATAGONES", "label": "PARTIDO DE PATAGONES", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: PARTIDO DE PATAGONES"}, {"color": "pink", "id": "PIGUE", "label": "PIGUE", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: PIGUE"}, {"color": "pink", "id": "PARTIDO DE VILLARINO", "label": "PARTIDO DE VILLARINO", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: PARTIDO DE VILLARINO"}, {"color": "pink", "id": "GENERAL ACHA", "label": "GENERAL ACHA", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: GENERAL ACHA"}, {"color": "pink", "id": "RESERVA MUNICIPAL COSTERA BAH\u00cdA BLANCA", "label": "RESERVA MUNICIPAL COSTERA BAH\u00cdA BLANCA", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: RESERVA MUNICIPAL COSTERA BAH\u00cdA BLANCA"}, {"color": "pink", "id": "ARGENTINA", "label": "ARGENTINA", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: ARGENTINA"}, {"color": "pink", "id": "RESERVA NATURAL PRIVADA SIERRAS GRANDES", "label": "RESERVA NATURAL PRIVADA SIERRAS GRANDES", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: RESERVA NATURAL PRIVADA SIERRAS GRANDES"}, {"color": "pink", "id": "GUATRACH\u00c9", "label": "GUATRACH\u00c9", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: GUATRACH\u00c9"}, {"color": "pink", "id": "COMARCA DEL COLORADO", "label": "COMARCA DEL COLORADO", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: COMARCA DEL COLORADO"}, {"color": "#87CEFA", "id": "Turismo ferroviario y patrimonio urbano", "label": "Turismo ferroviario y patrimonio urbano", "shape": "dot", "size": 10, "title": "Tema dominante: Turismo ferroviario y patrimonio urbano"}, {"color": "pink", "id": "CORONEL DORREGO", "label": "CORONEL DORREGO", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: CORONEL DORREGO"}, {"color": "pink", "id": "VIEDMA", "label": "VIEDMA", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: VIEDMA"}, {"color": "pink", "id": "PARQUE NOROESTE", "label": "PARQUE NOROESTE", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: PARQUE NOROESTE"}, {"color": "pink", "id": "MAR DEL PLATA", "label": "MAR DEL PLATA", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: MAR DEL PLATA"}, {"color": "pink", "id": "PARQUE DE LA INDEPENDENCIA", "label": "PARQUE DE LA INDEPENDENCIA", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: PARQUE DE LA INDEPENDENCIA"}, {"color": "pink", "id": "BUENOS AIRES", "label": "BUENOS AIRES", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: BUENOS AIRES"}, {"color": "pink", "id": "CORONEL ROSALES", "label": "CORONEL ROSALES", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: CORONEL ROSALES"}, {"color": "pink", "id": "CORONEL PRINGLES", "label": "CORONEL PRINGLES", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: CORONEL PRINGLES"}, {"color": "pink", "id": "BARRIO VILLA ROSAS", "label": "BARRIO VILLA ROSAS", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: BARRIO VILLA ROSAS"}, {"color": "#87CEFA", "id": "Turismo cultural y desarrollo local", "label": "Turismo cultural y desarrollo local", "shape": "dot", "size": 10, "title": "Tema dominante: Turismo cultural y desarrollo local"}, {"color": "pink", "id": "RIVERA", "label": "RIVERA", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: RIVERA"}, {"color": "pink", "id": "VILLA IRIS", "label": "VILLA IRIS", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: VILLA IRIS"}, {"color": "pink", "id": "CABILDO", "label": "CABILDO", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: CABILDO"}, {"color": "pink", "id": "GAIMAN", "label": "GAIMAN", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: GAIMAN"}, {"color": "pink", "id": "PARQUE NACIONAL LANIN", "label": "PARQUE NACIONAL LANIN", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: PARQUE NACIONAL LANIN"}, {"color": "pink", "id": "SAN MIGUEL ARC\u00c1NGEL Y ESTEBAN AGUST\u00cdN GASC\u00d3N", "label": "SAN MIGUEL ARC\u00c1NGEL Y ESTEBAN AGUST\u00cdN GASC\u00d3N", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: SAN MIGUEL ARC\u00c1NGEL Y ESTEBAN AGUST\u00cdN GASC\u00d3N"}, {"color": "pink", "id": "LA COLONIA", "label": "LA COLONIA", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: LA COLONIA"}, {"color": "pink", "id": "MONTE HERMOSO", "label": "MONTE HERMOSO", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: MONTE HERMOSO"}, {"color": "#87CEFA", "id": "Oferta de turismo rural y urbano", "label": "Oferta de turismo rural y urbano", "shape": "dot", "size": 10, "title": "Tema dominante: Oferta de turismo rural y urbano"}, {"color": "pink", "id": "CIUDAD AUTONOMA DE BUENOS AIRES", "label": "CIUDAD AUTONOMA DE BUENOS AIRES", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: CIUDAD AUTONOMA DE BUENOS AIRES"}, {"color": "pink", "id": "PUERTO MADRYN", "label": "PUERTO MADRYN", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: PUERTO MADRYN"}, {"color": "pink", "id": "MIRAMAR", "label": "MIRAMAR", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: MIRAMAR"}, {"color": "pink", "id": "VILLA AMANCAY", "label": "VILLA AMANCAY", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: VILLA AMANCAY"}, {"color": "pink", "id": "TRES ARROYOS", "label": "TRES ARROYOS", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: TRES ARROYOS"}, {"color": "pink", "id": "VILLA DEL MAR", "label": "VILLA DEL MAR", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: VILLA DEL MAR"}, {"color": "pink", "id": "PLAYAS DORADAS", "label": "PLAYAS DORADAS", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: PLAYAS DORADAS"}, {"color": "pink", "id": "BELEN", "label": "BELEN", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: BELEN"}, {"color": "pink", "id": "EL PARQUE", "label": "EL PARQUE", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: EL PARQUE"}, {"color": "pink", "id": "LA PAMPA", "label": "LA PAMPA", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: LA PAMPA"}, {"color": "pink", "id": "CIPOLLETTI", "label": "CIPOLLETTI", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: CIPOLLETTI"}, {"color": "pink", "id": "CORDOBA", "label": "CORDOBA", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: CORDOBA"}, {"color": "pink", "id": "COMARCA TUR\u00cdSTICA SIERRAS DE LA VENTANA", "label": "COMARCA TUR\u00cdSTICA SIERRAS DE LA VENTANA", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: COMARCA TUR\u00cdSTICA SIERRAS DE LA VENTANA"}, {"color": "#87CEFA", "id": "Turismo alternativo y cicloturismo", "label": "Turismo alternativo y cicloturismo", "shape": "dot", "size": 10, "title": "Tema dominante: Turismo alternativo y cicloturismo"}, {"color": "pink", "id": "INDIO RICO", "label": "INDIO RICO", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: INDIO RICO"}, {"color": "pink", "id": "ING. WHITE", "label": "ING. WHITE", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: ING. WHITE"}, {"color": "pink", "id": "AREA NATURAL PROTEGIDA PENINSULA VALDES", "label": "AREA NATURAL PROTEGIDA PENINSULA VALDES", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: AREA NATURAL PROTEGIDA PENINSULA VALDES"}, {"color": "pink", "id": "BARILOCHE", "label": "BARILOCHE", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: BARILOCHE"}, {"color": "#87CEFA", "id": "Patrimonio tur\u00edstico en provincias argentinas", "label": "Patrimonio tur\u00edstico en provincias argentinas", "shape": "dot", "size": 10, "title": "Tema dominante: Patrimonio tur\u00edstico en provincias argentinas"}, {"color": "pink", "id": "BARRIO UNIVERSITARIO", "label": "BARRIO UNIVERSITARIO", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: BARRIO UNIVERSITARIO"}, {"color": "pink", "id": "BASE NAVAL PUERTO BELGRANO", "label": "BASE NAVAL PUERTO BELGRANO", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: BASE NAVAL PUERTO BELGRANO"}, {"color": "pink", "id": "LAS GRUTAS", "label": "LAS GRUTAS", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: LAS GRUTAS"}, {"color": "#87CEFA", "id": "Turismo y comunicaci\u00f3n en ciudades", "label": "Turismo y comunicaci\u00f3n en ciudades", "shape": "dot", "size": 10, "title": "Tema dominante: Turismo y comunicaci\u00f3n en ciudades"}, {"color": "pink", "id": "VALLE DE CURA MALAL", "label": "VALLE DE CURA MALAL", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: VALLE DE CURA MALAL"}, {"color": "pink", "id": "JACINTO ARAUZ", "label": "JACINTO ARAUZ", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: JACINTO ARAUZ"}, {"color": "pink", "id": "BODEGA VI\u00d1A DEL CERNO Y BODEGA RESTAURANTE FIL\u00d3SOFOS", "label": "BODEGA VI\u00d1A DEL CERNO Y BODEGA RESTAURANTE FIL\u00d3SOFOS", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: BODEGA VI\u00d1A DEL CERNO Y BODEGA RESTAURANTE FIL\u00d3SOFOS"}, {"color": "#87CEFA", "id": "Turismo rural y accesibilidad en parques nacionales", "label": "Turismo rural y accesibilidad en parques nacionales", "shape": "dot", "size": 10, "title": "Tema dominante: Turismo rural y accesibilidad en parques nacionales"}, {"color": "pink", "id": "REGI\u00d3N TIERRA DEL CAWEL (LA PAMPA)", "label": "REGI\u00d3N TIERRA DEL CAWEL (LA PAMPA)", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: REGI\u00d3N TIERRA DEL CAWEL (LA PAMPA)"}, {"color": "pink", "id": "WINIFREDA", "label": "WINIFREDA", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: WINIFREDA"}, {"color": "#87CEFA", "id": "Revalorizaci\u00f3n del patrimonio cultural e hist\u00f3rico", "label": "Revalorizaci\u00f3n del patrimonio cultural e hist\u00f3rico", "shape": "dot", "size": 10, "title": "Tema dominante: Revalorizaci\u00f3n del patrimonio cultural e hist\u00f3rico"}, {"color": "pink", "id": "BAHIA SAN BLAS", "label": "BAHIA SAN BLAS", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: BAHIA SAN BLAS"}, {"color": "pink", "id": "LA COLINA", "label": "LA COLINA", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: LA COLINA"}, {"color": "#87CEFA", "id": "Patrimonio cultural y su puesta en valor", "label": "Patrimonio cultural y su puesta en valor", "shape": "dot", "size": 10, "title": "Tema dominante: Patrimonio cultural y su puesta en valor"}, {"color": "pink", "id": "JUAN COUSTE", "label": "JUAN COUSTE", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: JUAN COUSTE"}, {"color": "pink", "id": "QUEQUEN", "label": "QUEQUEN", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: QUEQUEN"}, {"color": "pink", "id": "SAN ANTONIO OESTE", "label": "SAN ANTONIO OESTE", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: SAN ANTONIO OESTE"}, {"color": "pink", "id": "RESERVA PROVINCIAL PARQUE LURO", "label": "RESERVA PROVINCIAL PARQUE LURO", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: RESERVA PROVINCIAL PARQUE LURO"}, {"color": "pink", "id": "DARREGUEIRA", "label": "DARREGUEIRA", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: DARREGUEIRA"}, {"color": "#87CEFA", "id": "Calidad percibida en servicios tur\u00edsticos", "label": "Calidad percibida en servicios tur\u00edsticos", "shape": "dot", "size": 10, "title": "Tema dominante: Calidad percibida en servicios tur\u00edsticos"}, {"color": "pink", "id": "AREA NATURAL PROTEGIDA CALETA DE LOS LOROS-POZO SALADO-PUNTA MEJILLON", "label": "AREA NATURAL PROTEGIDA CALETA DE LOS LOROS-POZO SALADO-PUNTA MEJILLON", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: AREA NATURAL PROTEGIDA CALETA DE LOS LOROS-POZO SALADO-PUNTA MEJILLON"}, {"color": "pink", "id": "EPECUEN", "label": "EPECUEN", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: EPECUEN"}, {"color": "pink", "id": "RADA TILLY", "label": "RADA TILLY", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: RADA TILLY"}, {"color": "#87CEFA", "id": "Espacios culturales y desarrollo tur\u00edstico", "label": "Espacios culturales y desarrollo tur\u00edstico", "shape": "dot", "size": 10, "title": "Tema dominante: Espacios culturales y desarrollo tur\u00edstico"}, {"color": "pink", "id": "DEL VALLE", "label": "DEL VALLE", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: DEL VALLE"}, {"color": "pink", "id": "GUAMINI", "label": "GUAMINI", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: GUAMINI"}, {"color": "pink", "id": "PUEBLO SAN JOSE", "label": "PUEBLO SAN JOSE", "shape": "dot", "size": 10, "title": "\u00c1rea de estudio: PUEBLO SAN JOSE"}, {"color": "#87CEFA", "id": "Turismo de eventos y destinos costeros", "label": "Turismo de eventos y destinos costeros", "shape": "dot", "size": 10, "title": "Tema dominante: Turismo de eventos y destinos costeros"}]);
+                  edges = new vis.DataSet([{"from": "An\u00e1lisis de turismo cultural y patrimonial", "title": "Frecuencia: 2", "to": "COLONIA SANTA MARIA", "width": 1}, {"from": "An\u00e1lisis de turismo cultural y patrimonial", "title": "Frecuencia: 2", "to": "SIERRA DE LA VENTANA", "width": 1}, {"from": "An\u00e1lisis de turismo cultural y patrimonial", "title": "Frecuencia: 1", "to": "CARHUE", "width": 1}, {"from": "An\u00e1lisis de turismo cultural y patrimonial", "title": "Frecuencia: 10", "to": "BAHIA BLANCA", "width": 1}, {"from": "An\u00e1lisis de turismo cultural y patrimonial", "title": "Frecuencia: 1", "to": "VILLA MITRE", "width": 1}, {"from": "An\u00e1lisis de turismo cultural y patrimonial", "title": "Frecuencia: 2", "to": "PEHUEN CO", "width": 1}, {"from": "An\u00e1lisis de turismo cultural y patrimonial", "title": "Frecuencia: 1", "to": "LA HOLANDA", "width": 1}, {"from": "An\u00e1lisis de turismo cultural y patrimonial", "title": "Frecuencia: 1", "to": "NECOCHEA", "width": 1}, {"from": "An\u00e1lisis de turismo cultural y patrimonial", "title": "Frecuencia: 2", "to": "SUDOESTE BONAERENSE", "width": 1}, {"from": "An\u00e1lisis de turismo cultural y patrimonial", "title": "Frecuencia: 1", "to": "PUNTA ALTA", "width": 1}, {"from": "An\u00e1lisis de turismo cultural y patrimonial", "title": "Frecuencia: 1", "to": "SUDESTE PAMPEANO", "width": 1}, {"from": "An\u00e1lisis de turismo cultural y patrimonial", "title": "Frecuencia: 1", "to": "USHUAIA", "width": 1}, {"from": "An\u00e1lisis de turismo cultural y patrimonial", "title": "Frecuencia: 2", "to": "NO DETECTADO", "width": 1}, {"from": "An\u00e1lisis de turismo cultural y patrimonial", "title": "Frecuencia: 1", "to": "CARMEN DE PATAGONES", "width": 1}, {"from": "An\u00e1lisis de turismo cultural y patrimonial", "title": "Frecuencia: 1", "to": "INGENIERO WHITE", "width": 1}, {"from": "An\u00e1lisis de turismo cultural y patrimonial", "title": "Frecuencia: 1", "to": "MACACH\u00cdN", "width": 1}, {"from": "An\u00e1lisis de turismo cultural y patrimonial", "title": "Frecuencia: 1", "to": "CORONEL SUAREZ", "width": 1}, {"from": "An\u00e1lisis de turismo cultural y patrimonial", "title": "Frecuencia: 1", "to": "TRENQUE LAUQUEN", "width": 1}, {"from": "An\u00e1lisis de turismo cultural y patrimonial", "title": "Frecuencia: 1", "to": "EL CONDOR", "width": 1}, {"from": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "title": "Frecuencia: 1", "to": "PUAN", "width": 1}, {"from": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "title": "Frecuencia: 5", "to": "BAHIA BLANCA", "width": 1}, {"from": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "title": "Frecuencia: 1", "to": "EL CAMPITO", "width": 1}, {"from": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "title": "Frecuencia: 1", "to": "CHOELE CHOEL", "width": 1}, {"from": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "title": "Frecuencia: 2", "to": "SANTA ROSA", "width": 1}, {"from": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "title": "Frecuencia: 1", "to": "ESTANCIA LA DULCE", "width": 1}, {"from": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "title": "Frecuencia: 1", "to": "SUDOESTE BONAERENSE", "width": 1}, {"from": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "title": "Frecuencia: 1", "to": "COMARCA VIEDMA-PATAGONES", "width": 1}, {"from": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "title": "Frecuencia: 1", "to": "LA ARGENTINA", "width": 1}, {"from": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "title": "Frecuencia: 1", "to": "PARTIDO DE PATAGONES", "width": 1}, {"from": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "title": "Frecuencia: 2", "to": "NO DETECTADO", "width": 1}, {"from": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "title": "Frecuencia: 1", "to": "PIGUE", "width": 1}, {"from": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "title": "Frecuencia: 1", "to": "PARTIDO DE VILLARINO", "width": 1}, {"from": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "title": "Frecuencia: 1", "to": "GENERAL ACHA", "width": 1}, {"from": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "title": "Frecuencia: 1", "to": "RESERVA MUNICIPAL COSTERA BAH\u00cdA BLANCA", "width": 1}, {"from": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "title": "Frecuencia: 1", "to": "CARHUE", "width": 1}, {"from": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "title": "Frecuencia: 1", "to": "ARGENTINA", "width": 1}, {"from": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "title": "Frecuencia: 1", "to": "PEHUEN CO", "width": 1}, {"from": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "title": "Frecuencia: 1", "to": "RESERVA NATURAL PRIVADA SIERRAS GRANDES", "width": 1}, {"from": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "title": "Frecuencia: 1", "to": "GUATRACH\u00c9", "width": 1}, {"from": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "title": "Frecuencia: 1", "to": "COMARCA DEL COLORADO", "width": 1}, {"from": "Turismo ferroviario y patrimonio urbano", "title": "Frecuencia: 2", "to": "CORONEL DORREGO", "width": 1}, {"from": "Turismo ferroviario y patrimonio urbano", "title": "Frecuencia: 1", "to": "VIEDMA", "width": 1}, {"from": "Turismo ferroviario y patrimonio urbano", "title": "Frecuencia: 1", "to": "PARQUE NOROESTE", "width": 1}, {"from": "Turismo ferroviario y patrimonio urbano", "title": "Frecuencia: 1", "to": "MAR DEL PLATA", "width": 1}, {"from": "Turismo ferroviario y patrimonio urbano", "title": "Frecuencia: 1", "to": "PARQUE DE LA INDEPENDENCIA", "width": 1}, {"from": "Turismo ferroviario y patrimonio urbano", "title": "Frecuencia: 1", "to": "CORONEL SUAREZ", "width": 1}, {"from": "Turismo ferroviario y patrimonio urbano", "title": "Frecuencia: 1", "to": "BUENOS AIRES", "width": 1}, {"from": "Turismo ferroviario y patrimonio urbano", "title": "Frecuencia: 1", "to": "CORONEL ROSALES", "width": 1}, {"from": "Turismo ferroviario y patrimonio urbano", "title": "Frecuencia: 1", "to": "CORONEL PRINGLES", "width": 1}, {"from": "Turismo ferroviario y patrimonio urbano", "title": "Frecuencia: 1", "to": "BARRIO VILLA ROSAS", "width": 1}, {"from": "Turismo cultural y desarrollo local", "title": "Frecuencia: 1", "to": "RIVERA", "width": 1}, {"from": "Turismo cultural y desarrollo local", "title": "Frecuencia: 7", "to": "BAHIA BLANCA", "width": 1}, {"from": "Turismo cultural y desarrollo local", "title": "Frecuencia: 1", "to": "VILLA IRIS", "width": 1}, {"from": "Turismo cultural y desarrollo local", "title": "Frecuencia: 2", "to": "COLONIA SANTA MARIA", "width": 1}, {"from": "Turismo cultural y desarrollo local", "title": "Frecuencia: 2", "to": "PEHUEN CO", "width": 1}, {"from": "Turismo cultural y desarrollo local", "title": "Frecuencia: 1", "to": "CABILDO", "width": 1}, {"from": "Turismo cultural y desarrollo local", "title": "Frecuencia: 1", "to": "GAIMAN", "width": 1}, {"from": "Turismo cultural y desarrollo local", "title": "Frecuencia: 1", "to": "INGENIERO WHITE", "width": 1}, {"from": "Turismo cultural y desarrollo local", "title": "Frecuencia: 1", "to": "PARQUE NACIONAL LANIN", "width": 1}, {"from": "Turismo cultural y desarrollo local", "title": "Frecuencia: 1", "to": "CARMEN DE PATAGONES", "width": 1}, {"from": "Turismo cultural y desarrollo local", "title": "Frecuencia: 1", "to": "SAN MIGUEL ARC\u00c1NGEL Y ESTEBAN AGUST\u00cdN GASC\u00d3N", "width": 1}, {"from": "Turismo cultural y desarrollo local", "title": "Frecuencia: 1", "to": "LA COLONIA", "width": 1}, {"from": "Turismo cultural y desarrollo local", "title": "Frecuencia: 1", "to": "MONTE HERMOSO", "width": 1}, {"from": "Oferta de turismo rural y urbano", "title": "Frecuencia: 1", "to": "CIUDAD AUTONOMA DE BUENOS AIRES", "width": 1}, {"from": "Oferta de turismo rural y urbano", "title": "Frecuencia: 2", "to": "PUERTO MADRYN", "width": 1}, {"from": "Oferta de turismo rural y urbano", "title": "Frecuencia: 1", "to": "MIRAMAR", "width": 1}, {"from": "Oferta de turismo rural y urbano", "title": "Frecuencia: 1", "to": "VILLA AMANCAY", "width": 1}, {"from": "Oferta de turismo rural y urbano", "title": "Frecuencia: 1", "to": "PARTIDO DE PATAGONES", "width": 1}, {"from": "Oferta de turismo rural y urbano", "title": "Frecuencia: 1", "to": "CABILDO", "width": 1}, {"from": "Oferta de turismo rural y urbano", "title": "Frecuencia: 3", "to": "CHOELE CHOEL", "width": 1}, {"from": "Oferta de turismo rural y urbano", "title": "Frecuencia: 1", "to": "PEHUEN CO", "width": 1}, {"from": "Oferta de turismo rural y urbano", "title": "Frecuencia: 9", "to": "BAHIA BLANCA", "width": 1}, {"from": "Oferta de turismo rural y urbano", "title": "Frecuencia: 3", "to": "MONTE HERMOSO", "width": 1}, {"from": "Oferta de turismo rural y urbano", "title": "Frecuencia: 1", "to": "TRES ARROYOS", "width": 1}, {"from": "Oferta de turismo rural y urbano", "title": "Frecuencia: 1", "to": "CARMEN DE PATAGONES", "width": 1}, {"from": "Oferta de turismo rural y urbano", "title": "Frecuencia: 1", "to": "USHUAIA", "width": 1}, {"from": "Oferta de turismo rural y urbano", "title": "Frecuencia: 1", "to": "BUENOS AIRES", "width": 1}, {"from": "Oferta de turismo rural y urbano", "title": "Frecuencia: 1", "to": "VILLA DEL MAR", "width": 1}, {"from": "Oferta de turismo rural y urbano", "title": "Frecuencia: 1", "to": "PLAYAS DORADAS", "width": 1}, {"from": "Oferta de turismo rural y urbano", "title": "Frecuencia: 1", "to": "SIERRA DE LA VENTANA", "width": 1}, {"from": "Oferta de turismo rural y urbano", "title": "Frecuencia: 1", "to": "BELEN", "width": 1}, {"from": "Oferta de turismo rural y urbano", "title": "Frecuencia: 1", "to": "EL PARQUE", "width": 1}, {"from": "Oferta de turismo rural y urbano", "title": "Frecuencia: 1", "to": "LA PAMPA", "width": 1}, {"from": "Oferta de turismo rural y urbano", "title": "Frecuencia: 1", "to": "CIPOLLETTI", "width": 1}, {"from": "Oferta de turismo rural y urbano", "title": "Frecuencia: 1", "to": "CORDOBA", "width": 1}, {"from": "Oferta de turismo rural y urbano", "title": "Frecuencia: 1", "to": "COMARCA TUR\u00cdSTICA SIERRAS DE LA VENTANA", "width": 1}, {"from": "Oferta de turismo rural y urbano", "title": "Frecuencia: 1", "to": "EL CONDOR", "width": 1}, {"from": "Oferta de turismo rural y urbano", "title": "Frecuencia: 1", "to": "PIGUE", "width": 1}, {"from": "Turismo alternativo y cicloturismo", "title": "Frecuencia: 1", "to": "INDIO RICO", "width": 1}, {"from": "Turismo alternativo y cicloturismo", "title": "Frecuencia: 1", "to": "BAHIA BLANCA", "width": 1}, {"from": "Turismo alternativo y cicloturismo", "title": "Frecuencia: 1", "to": "PUNTA ALTA", "width": 1}, {"from": "Turismo alternativo y cicloturismo", "title": "Frecuencia: 1", "to": "ING. WHITE", "width": 1}, {"from": "Turismo alternativo y cicloturismo", "title": "Frecuencia: 1", "to": "CORONEL SUAREZ", "width": 1}, {"from": "Turismo alternativo y cicloturismo", "title": "Frecuencia: 1", "to": "CORONEL DORREGO", "width": 1}, {"from": "Turismo alternativo y cicloturismo", "title": "Frecuencia: 1", "to": "AREA NATURAL PROTEGIDA PENINSULA VALDES", "width": 1}, {"from": "Turismo alternativo y cicloturismo", "title": "Frecuencia: 1", "to": "BARILOCHE", "width": 1}, {"from": "Turismo alternativo y cicloturismo", "title": "Frecuencia: 1", "to": "CORONEL PRINGLES", "width": 1}, {"from": "Turismo alternativo y cicloturismo", "title": "Frecuencia: 1", "to": "EL CONDOR", "width": 1}, {"from": "Turismo alternativo y cicloturismo", "title": "Frecuencia: 1", "to": "VILLA DEL MAR", "width": 1}, {"from": "Patrimonio tur\u00edstico en provincias argentinas", "title": "Frecuencia: 2", "to": "LA ARGENTINA", "width": 1}, {"from": "Patrimonio tur\u00edstico en provincias argentinas", "title": "Frecuencia: 2", "to": "ARGENTINA", "width": 1}, {"from": "Patrimonio tur\u00edstico en provincias argentinas", "title": "Frecuencia: 1", "to": "BARRIO UNIVERSITARIO", "width": 1}, {"from": "Patrimonio tur\u00edstico en provincias argentinas", "title": "Frecuencia: 1", "to": "BASE NAVAL PUERTO BELGRANO", "width": 1}, {"from": "Patrimonio tur\u00edstico en provincias argentinas", "title": "Frecuencia: 1", "to": "VIEDMA", "width": 1}, {"from": "Patrimonio tur\u00edstico en provincias argentinas", "title": "Frecuencia: 2", "to": "SIERRA DE LA VENTANA", "width": 1}, {"from": "Patrimonio tur\u00edstico en provincias argentinas", "title": "Frecuencia: 1", "to": "LAS GRUTAS", "width": 1}, {"from": "Patrimonio tur\u00edstico en provincias argentinas", "title": "Frecuencia: 1", "to": "BAHIA BLANCA", "width": 1}, {"from": "Patrimonio tur\u00edstico en provincias argentinas", "title": "Frecuencia: 1", "to": "NO DETECTADO", "width": 1}, {"from": "Turismo y comunicaci\u00f3n en ciudades", "title": "Frecuencia: 6", "to": "BAHIA BLANCA", "width": 1}, {"from": "Turismo y comunicaci\u00f3n en ciudades", "title": "Frecuencia: 1", "to": "VALLE DE CURA MALAL", "width": 1}, {"from": "Turismo y comunicaci\u00f3n en ciudades", "title": "Frecuencia: 1", "to": "SANTA ROSA", "width": 1}, {"from": "Turismo y comunicaci\u00f3n en ciudades", "title": "Frecuencia: 1", "to": "JACINTO ARAUZ", "width": 1}, {"from": "Turismo y comunicaci\u00f3n en ciudades", "title": "Frecuencia: 1", "to": "PARQUE DE LA INDEPENDENCIA", "width": 1}, {"from": "Turismo y comunicaci\u00f3n en ciudades", "title": "Frecuencia: 1", "to": "SIERRA DE LA VENTANA", "width": 1}, {"from": "Turismo y comunicaci\u00f3n en ciudades", "title": "Frecuencia: 1", "to": "SUDOESTE BONAERENSE", "width": 1}, {"from": "Turismo y comunicaci\u00f3n en ciudades", "title": "Frecuencia: 1", "to": "BODEGA VI\u00d1A DEL CERNO Y BODEGA RESTAURANTE FIL\u00d3SOFOS", "width": 1}, {"from": "Turismo y comunicaci\u00f3n en ciudades", "title": "Frecuencia: 1", "to": "PARTIDO DE PATAGONES", "width": 1}, {"from": "Turismo rural y accesibilidad en parques nacionales", "title": "Frecuencia: 1", "to": "SIERRA DE LA VENTANA", "width": 1}, {"from": "Turismo rural y accesibilidad en parques nacionales", "title": "Frecuencia: 1", "to": "ARGENTINA", "width": 1}, {"from": "Turismo rural y accesibilidad en parques nacionales", "title": "Frecuencia: 1", "to": "REGI\u00d3N TIERRA DEL CAWEL (LA PAMPA)", "width": 1}, {"from": "Turismo rural y accesibilidad en parques nacionales", "title": "Frecuencia: 1", "to": "WINIFREDA", "width": 1}, {"from": "Revalorizaci\u00f3n del patrimonio cultural e hist\u00f3rico", "title": "Frecuencia: 3", "to": "BAHIA BLANCA", "width": 1}, {"from": "Revalorizaci\u00f3n del patrimonio cultural e hist\u00f3rico", "title": "Frecuencia: 1", "to": "BAHIA SAN BLAS", "width": 1}, {"from": "Revalorizaci\u00f3n del patrimonio cultural e hist\u00f3rico", "title": "Frecuencia: 1", "to": "INGENIERO WHITE", "width": 1}, {"from": "Revalorizaci\u00f3n del patrimonio cultural e hist\u00f3rico", "title": "Frecuencia: 1", "to": "LA COLINA", "width": 1}, {"from": "Revalorizaci\u00f3n del patrimonio cultural e hist\u00f3rico", "title": "Frecuencia: 1", "to": "SIERRA DE LA VENTANA", "width": 1}, {"from": "Revalorizaci\u00f3n del patrimonio cultural e hist\u00f3rico", "title": "Frecuencia: 1", "to": "TRES ARROYOS", "width": 1}, {"from": "Patrimonio cultural y su puesta en valor", "title": "Frecuencia: 1", "to": "CABILDO", "width": 1}, {"from": "Patrimonio cultural y su puesta en valor", "title": "Frecuencia: 1", "to": "SUDOESTE BONAERENSE", "width": 1}, {"from": "Patrimonio cultural y su puesta en valor", "title": "Frecuencia: 1", "to": "JUAN COUSTE", "width": 1}, {"from": "Patrimonio cultural y su puesta en valor", "title": "Frecuencia: 1", "to": "QUEQUEN", "width": 1}, {"from": "Patrimonio cultural y su puesta en valor", "title": "Frecuencia: 1", "to": "SAN ANTONIO OESTE", "width": 1}, {"from": "Patrimonio cultural y su puesta en valor", "title": "Frecuencia: 1", "to": "BUENOS AIRES", "width": 1}, {"from": "Patrimonio cultural y su puesta en valor", "title": "Frecuencia: 1", "to": "RESERVA PROVINCIAL PARQUE LURO", "width": 1}, {"from": "Patrimonio cultural y su puesta en valor", "title": "Frecuencia: 1", "to": "BAHIA BLANCA", "width": 1}, {"from": "Patrimonio cultural y su puesta en valor", "title": "Frecuencia: 1", "to": "CORONEL DORREGO", "width": 1}, {"from": "Patrimonio cultural y su puesta en valor", "title": "Frecuencia: 1", "to": "DARREGUEIRA", "width": 1}, {"from": "Calidad percibida en servicios tur\u00edsticos", "title": "Frecuencia: 2", "to": "SUDOESTE BONAERENSE", "width": 1}, {"from": "Calidad percibida en servicios tur\u00edsticos", "title": "Frecuencia: 1", "to": "AREA NATURAL PROTEGIDA CALETA DE LOS LOROS-POZO SALADO-PUNTA MEJILLON", "width": 1}, {"from": "Calidad percibida en servicios tur\u00edsticos", "title": "Frecuencia: 1", "to": "EPECUEN", "width": 1}, {"from": "Calidad percibida en servicios tur\u00edsticos", "title": "Frecuencia: 2", "to": "BAHIA BLANCA", "width": 1}, {"from": "Calidad percibida en servicios tur\u00edsticos", "title": "Frecuencia: 2", "to": "SIERRA DE LA VENTANA", "width": 1}, {"from": "Calidad percibida en servicios tur\u00edsticos", "title": "Frecuencia: 1", "to": "RADA TILLY", "width": 1}, {"from": "Espacios culturales y desarrollo tur\u00edstico", "title": "Frecuencia: 1", "to": "DEL VALLE", "width": 1}, {"from": "Espacios culturales y desarrollo tur\u00edstico", "title": "Frecuencia: 4", "to": "BAHIA BLANCA", "width": 1}, {"from": "Espacios culturales y desarrollo tur\u00edstico", "title": "Frecuencia: 1", "to": "NO DETECTADO", "width": 1}, {"from": "Espacios culturales y desarrollo tur\u00edstico", "title": "Frecuencia: 1", "to": "PEHUEN CO", "width": 1}, {"from": "Espacios culturales y desarrollo tur\u00edstico", "title": "Frecuencia: 1", "to": "PARTIDO DE PATAGONES", "width": 1}, {"from": "Espacios culturales y desarrollo tur\u00edstico", "title": "Frecuencia: 1", "to": "EPECUEN", "width": 1}, {"from": "Espacios culturales y desarrollo tur\u00edstico", "title": "Frecuencia: 1", "to": "GUAMINI", "width": 1}, {"from": "Espacios culturales y desarrollo tur\u00edstico", "title": "Frecuencia: 1", "to": "PUEBLO SAN JOSE", "width": 1}, {"from": "Espacios culturales y desarrollo tur\u00edstico", "title": "Frecuencia: 1", "to": "BUENOS AIRES", "width": 1}, {"from": "Espacios culturales y desarrollo tur\u00edstico", "title": "Frecuencia: 1", "to": "ARGENTINA", "width": 1}, {"from": "Turismo de eventos y destinos costeros", "title": "Frecuencia: 2", "to": "PEHUEN CO", "width": 1}, {"from": "Turismo de eventos y destinos costeros", "title": "Frecuencia: 1", "to": "ARGENTINA", "width": 1}, {"from": "Turismo de eventos y destinos costeros", "title": "Frecuencia: 3", "to": "BAHIA BLANCA", "width": 1}, {"from": "Turismo de eventos y destinos costeros", "title": "Frecuencia: 1", "to": "JACINTO ARAUZ", "width": 1}, {"from": "Turismo de eventos y destinos costeros", "title": "Frecuencia: 1", "to": "CORONEL PRINGLES", "width": 1}, {"from": "Turismo de eventos y destinos costeros", "title": "Frecuencia: 1", "to": "VILLA DEL MAR", "width": 1}, {"from": "Turismo de eventos y destinos costeros", "title": "Frecuencia: 1", "to": "EL CONDOR", "width": 1}, {"from": "Turismo de eventos y destinos costeros", "title": "Frecuencia: 1", "to": "SANTA ROSA", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+                      network.on("stabilizationProgress", function(params) {
+                          document.getElementById('loadingBar').removeAttribute("style");
+                          var maxWidth = 496;
+                          var minWidth = 20;
+                          var widthFactor = params.iterations/params.total;
+                          var width = Math.max(minWidth,maxWidth * widthFactor);
+                          document.getElementById('bar').style.width = width + 'px';
+                          document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+                      });
+                      network.once("stabilizationIterationsDone", function() {
+                          document.getElementById('text').innerHTML = '100%';
+                          document.getElementById('bar').style.width = '496px';
+                          document.getElementById('loadingBar').style.opacity = 0;
+                          // really clean the dom element
+                          setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+                      });
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+        <h5 style="text-align:center; color:#2c3e50;">Autora: Lic. Badano María Candela</h5>
+    </body>
+</html>

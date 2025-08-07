@@ -2,53 +2,215 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Índice de Grafos - Tesinas DGyT-UNS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Índice de Visualizaciones Interactivas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #004d40; /* Verde oscuro */
+            --secondary-color: #00796b; /* Verde teal */
+            --background-color: #e0f2f1; /* Verde menta muy claro */
+            --card-background: #ffffff; /* Blanco */
+            --text-color: #263238; /* Gris oscuro */
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            padding: 2rem;
-            background-color: #f5f5f5;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
         }
-        h1 {
-            color: #222;
+
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
         }
-        ul {
-            list-style: none;
-            padding-left: 0;
+
+        header {
+            text-align: center;
+            padding: 3rem 0 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px var(--shadow-color);
         }
-        li {
-            margin: 12px 0;
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
         }
-        a {
+
+        header p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            margin: 0.5rem 0 0;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: var(--card-background);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px var(--shadow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow-color);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-right: 1.5rem;
+        }
+        
+        .card-content h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .card-content a {
             text-decoration: none;
-            color: #0066cc;
-            font-weight: bold;
+            color: var(--text-color);
+            display: block;
         }
-        a:hover {
+
+        .card-content a:hover {
+            color: var(--primary-color);
             text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1.5rem 0;
+            font-size: 0.9rem;
+            color: #607d8b;
+            border-top: 1px solid #cfd8dc;
+        }
+
+        footer p {
+            margin: 0.2rem 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            .card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .card-icon {
+                margin: 0 0 1rem 0;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Índice de visualizaciones interactivas</h1>
-    <ul>
-        <li><a href="cambios_enfoque_territorial.html" target="_blank">📍 Cambio de enfoque territorial: Tesinas de la Licenciatura en Turismo (DGyT-UNS)</a></li>
-        <li><a href="evolucion_enfoque_interactivo.html" target="_blank">📈 Evolución metodológica de la producción de tesinas de la Licenciatura en Turismo (DGyT-UNS)</a></li>
-        <li><a href="evolucion_temas_clic_interactivo.html" target="_blank">📚 Evolución temática: Tesinas de la Licenciatura en Turismo (DGyT-UNS)</a></li>
-        <li><a href="evolucion_tematica_por_plan.html" target="_blank">🗂️ Evolución temática por plan de estudio: Tesinas de la Licenciatura en Turismo (DGyT-UNS)</a></li>
-        <li><a href="evolucion_top5_areas.html" target="_blank">🏆 Evolución del Top 5 de áreas de estudio: Tesinas de la Licenciatura en Turismo (DGyT-UNS)</a></li>
-        <li><a href="red_directores.html" target="_blank">👥 Red de colaboración de dirección: Tesinas de la Licenciatura en Turismo (DGyT-UNS)</a></li>
-        <li><a href="red_orientacion_tema_colores.html" target="_blank">🔗 Red de Orientación y Tema: Tesinas de la Licenciatura en Turismo (DGyT-UNS)</a></li>
-        <li><a href="red_tema_area.html" target="_blank">🧭 Red de Temas y Áreas de estudio: Tesinas de la Licenciatura en Turismo (DGyT-UNS)</a></li>
-        <li><a href="red_tema_tesinas.html" target="_blank">🧠 Red de Dirección, Tema y Áreas de estudio: Tesinas de la Licenciatura en Turismo (DGyT-UNS)</a></li>
-        <li><a href="tablero_interactivo_lineastematicas.html" target="_blank">📊 Resumen de las líneas temáticas: Tesinas de la Licenciatura en Turismo (DGyT-UNS)</a></li>
-        <li><a href="tablero_interactivo_clusterestematicos.html" target="_blank">🧬 Resumen de las líneas temáticas: Tesinas de la Licenciatura en Turismo (DGyT-UNS)</a></li>
-      
-    </ul>
-    <footer class="text-center mt-8 text-slate-500 text-sm">
-           <p>Resultados correspondientes al trabajo final de carrera de la Especialización en Big Data y Análisis de Datos estratégico - UCASAL</p>
-           <p>© 2025 - “Un viaje por la producción académica universitaria: Tesinas de la Licenciatura en Turismo del Departamento de Geografía y Turismo de la Universidad Nacional del Sur, provincia de Buenos Aires”</p>
+
+    <div class="container">
+        <header>
+            <h1>Índice de Visualizaciones Interactivas</h1>
+            <p>Un viaje por la producción académica de la Licenciatura en Turismo (DGyT-UNS)</p>
+        </header>
+
+        <div class="grid-container">
+            <div class="card">
+                <span class="card-icon">📍</span>
+                <div class="card-content">
+                    <h3><a href="cambios_enfoque_territorial.html" target="_blank">Cambio de enfoque territorial</a></h3>
+                    <p>Tesinas de la Licenciatura en Turismo (DGyT-UNS)</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <span class="card-icon">📈</span>
+                <div class="card-content">
+                    <h3><a href="evolucion_enfoque_interactivo.html" target="_blank">Evolución metodológica de la producción de tesinas</a></h3>
+                    <p>Tesinas de la Licenciatura en Turismo (DGyT-UNS)</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="card-icon">📚</span>
+                <div class="card-content">
+                    <h3><a href="evolucion_temas_clic_interactivo.html" target="_blank">Evolución temática</a></h3>
+                    <p>Tesinas de la Licenciatura en Turismo (DGyT-UNS)</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="card-icon">👥</span>
+                <div class="card-content">
+                    <h3><a href="red_colaboracion_direccion.html" target="_blank">Red de colaboración de dirección</a></h3>
+                    <p>Tesinas de la Licenciatura en Turismo (DGyT-UNS)</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="card-icon">🔗</span>
+                <div class="card-content">
+                    <h3><a href="red_orientacion_tema_colores.html" target="_blank">Red de Orientación y Tema</a></h3>
+                    <p>Tesinas de la Licenciatura en Turismo (DGyT-UNS)</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="card-icon">🧭</span>
+                <div class="card-content">
+                    <h3><a href="red_tema_area.html" target="_blank">Red de Temas y Áreas de estudio</a></h3>
+                    <p>Tesinas de la Licenciatura en Turismo (DGyT-UNS)</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="card-icon">🧠</span>
+                <div class="card-content">
+                    <h3><a href="red_tema_tesinas.html" target="_blank">Red de Dirección, Tema y Áreas de estudio</a></h3>
+                    <p>Tesinas de la Licenciatura en Turismo (DGyT-UNS)</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="card-icon">📊</span>
+                <div class="card-content">
+                    <h3><a href="tablero_interactivo_lineastematicas.html" target="_blank">Resumen de las líneas temáticas</a></h3>
+                    <p>Tesinas de la Licenciatura en Turismo (DGyT-UNS)</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="card-icon">🧬</span>
+                <div class="card-content">
+                    <h3><a href="tablero_interactivo_clusterestematicos.html" target="_blank">Resumen de los clusters temáticos</a></h3>
+                    <p>Tesinas de la Licenciatura en Turismo (DGyT-UNS)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Resultados correspondientes al trabajo final de carrera de la Especialización en Big Data y Análisis de Datos Estratégicos - UCASAL</p>
+        <p>© 2025 - "Un viaje por la producción académica universitaria: Tesinas de la Licenciatura en Turismo del Departamento de Geografía y Turismo de la UNS"</p>
     </footer>
-    <h5 style="text-align:center; color:#2c3e50;">Autora: Lic. Badano María Candela</h5>
+<h5 style="text-align:center; color:#2c3e50;">Autora: Lic. Badano María Candela</h5>
 </body>
 </html>

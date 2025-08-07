@@ -1,0 +1,176 @@
+<html>
+    <head> <title>Red de Orientación y Tema: Tesinas de la Licenciatura en Turismo (DGyT-UNS)</title>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 700px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+                <h2 style="text-align:center; color:#2c3e50;">Red de Orientación y Tema: Tesinas de la Licenciatura en Turismo (DGyT-UNS)</h2>
+        <div class="card" style="width: 100%">
+    <h7> El gráfico muestra las principales líneas temáticas abordadas en las tesinas vinculadas con la orientación académica predomitante.</h7>
+        <ul>
+            <li>Los puntos representan las líneas temáticas y las orientaciones académicas.</li>
+            <li>Los enlaces entre los puntos representan la relación entre las líneas temáticas y las orientaciones académicas.</li>
+            <li>Los el tamaño de los enlaces representa la cantidad de tesinas por orientación académica en las que se aborda una línea temática.</li>
+            <li>El color de los puntos indica la categoría a la que pertenecen: rosa para líneas temáticas y celesta para orientaciones académicas.</li>
+        </ul>     
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#87CEFA", "id": "Planificaci\u00f3n y Gesti\u00f3n Territorial del Turismo", "label": "Planificaci\u00f3n y Gesti\u00f3n Territorial del Turismo", "shape": "dot", "size": 10, "title": "Orientaci\u00f3n: Planificaci\u00f3n y Gesti\u00f3n Territorial del Turismo"}, {"color": "lightpink", "id": "An\u00e1lisis de turismo cultural y patrimonial", "label": "An\u00e1lisis de turismo cultural y patrimonial", "shape": "dot", "size": 10, "title": "Tema dominante: An\u00e1lisis de turismo cultural y patrimonial"}, {"color": "lightpink", "id": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "label": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "shape": "dot", "size": 10, "title": "Tema dominante: Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos"}, {"color": "lightpink", "id": "Turismo cultural y desarrollo local", "label": "Turismo cultural y desarrollo local", "shape": "dot", "size": 10, "title": "Tema dominante: Turismo cultural y desarrollo local"}, {"color": "lightpink", "id": "Turismo de eventos y destinos costeros", "label": "Turismo de eventos y destinos costeros", "shape": "dot", "size": 10, "title": "Tema dominante: Turismo de eventos y destinos costeros"}, {"color": "lightpink", "id": "Oferta de turismo rural y urbano", "label": "Oferta de turismo rural y urbano", "shape": "dot", "size": 10, "title": "Tema dominante: Oferta de turismo rural y urbano"}, {"color": "lightpink", "id": "Revalorizaci\u00f3n del patrimonio cultural e hist\u00f3rico", "label": "Revalorizaci\u00f3n del patrimonio cultural e hist\u00f3rico", "shape": "dot", "size": 10, "title": "Tema dominante: Revalorizaci\u00f3n del patrimonio cultural e hist\u00f3rico"}, {"color": "lightpink", "id": "Espacios culturales y desarrollo tur\u00edstico", "label": "Espacios culturales y desarrollo tur\u00edstico", "shape": "dot", "size": 10, "title": "Tema dominante: Espacios culturales y desarrollo tur\u00edstico"}, {"color": "lightpink", "id": "Turismo alternativo y cicloturismo", "label": "Turismo alternativo y cicloturismo", "shape": "dot", "size": 10, "title": "Tema dominante: Turismo alternativo y cicloturismo"}, {"color": "lightpink", "id": "Patrimonio tur\u00edstico en provincias argentinas", "label": "Patrimonio tur\u00edstico en provincias argentinas", "shape": "dot", "size": 10, "title": "Tema dominante: Patrimonio tur\u00edstico en provincias argentinas"}, {"color": "lightpink", "id": "Turismo y comunicaci\u00f3n en ciudades", "label": "Turismo y comunicaci\u00f3n en ciudades", "shape": "dot", "size": 10, "title": "Tema dominante: Turismo y comunicaci\u00f3n en ciudades"}, {"color": "lightpink", "id": "Patrimonio cultural y su puesta en valor", "label": "Patrimonio cultural y su puesta en valor", "shape": "dot", "size": 10, "title": "Tema dominante: Patrimonio cultural y su puesta en valor"}, {"color": "lightpink", "id": "Turismo rural y accesibilidad en parques nacionales", "label": "Turismo rural y accesibilidad en parques nacionales", "shape": "dot", "size": 10, "title": "Tema dominante: Turismo rural y accesibilidad en parques nacionales"}, {"color": "#87CEFA", "id": "Planificaci\u00f3n de los Recursos Turisticos y Medio Ambiente", "label": "Planificaci\u00f3n de los Recursos Turisticos y Medio Ambiente", "shape": "dot", "size": 10, "title": "Orientaci\u00f3n: Planificaci\u00f3n de los Recursos Turisticos y Medio Ambiente"}, {"color": "lightpink", "id": "Calidad percibida en servicios tur\u00edsticos", "label": "Calidad percibida en servicios tur\u00edsticos", "shape": "dot", "size": 10, "title": "Tema dominante: Calidad percibida en servicios tur\u00edsticos"}, {"color": "lightpink", "id": "Turismo ferroviario y patrimonio urbano", "label": "Turismo ferroviario y patrimonio urbano", "shape": "dot", "size": 10, "title": "Tema dominante: Turismo ferroviario y patrimonio urbano"}, {"color": "#87CEFA", "id": "Planificaci\u00f3n y Gesti\u00f3n de Empresas Tur\u00edsticas", "label": "Planificaci\u00f3n y Gesti\u00f3n de Empresas Tur\u00edsticas", "shape": "dot", "size": 10, "title": "Orientaci\u00f3n: Planificaci\u00f3n y Gesti\u00f3n de Empresas Tur\u00edsticas"}, {"color": "#87CEFA", "id": "Gesti\u00f3n y Administraci\u00f3n de Empresas Turisticas", "label": "Gesti\u00f3n y Administraci\u00f3n de Empresas Turisticas", "shape": "dot", "size": 10, "title": "Orientaci\u00f3n: Gesti\u00f3n y Administraci\u00f3n de Empresas Turisticas"}]);
+                  edges = new vis.DataSet([{"from": "Planificaci\u00f3n y Gesti\u00f3n Territorial del Turismo", "title": "Frecuencia: 9", "to": "An\u00e1lisis de turismo cultural y patrimonial", "width": 9}, {"from": "Planificaci\u00f3n y Gesti\u00f3n Territorial del Turismo", "title": "Frecuencia: 6", "to": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "width": 6}, {"from": "Planificaci\u00f3n y Gesti\u00f3n Territorial del Turismo", "title": "Frecuencia: 3", "to": "Turismo cultural y desarrollo local", "width": 3}, {"from": "Planificaci\u00f3n y Gesti\u00f3n Territorial del Turismo", "title": "Frecuencia: 4", "to": "Turismo de eventos y destinos costeros", "width": 4}, {"from": "Planificaci\u00f3n y Gesti\u00f3n Territorial del Turismo", "title": "Frecuencia: 5", "to": "Oferta de turismo rural y urbano", "width": 5}, {"from": "Planificaci\u00f3n y Gesti\u00f3n Territorial del Turismo", "title": "Frecuencia: 4", "to": "Revalorizaci\u00f3n del patrimonio cultural e hist\u00f3rico", "width": 4}, {"from": "Planificaci\u00f3n y Gesti\u00f3n Territorial del Turismo", "title": "Frecuencia: 3", "to": "Espacios culturales y desarrollo tur\u00edstico", "width": 3}, {"from": "Planificaci\u00f3n y Gesti\u00f3n Territorial del Turismo", "title": "Frecuencia: 1", "to": "Turismo alternativo y cicloturismo", "width": 1}, {"from": "Planificaci\u00f3n y Gesti\u00f3n Territorial del Turismo", "title": "Frecuencia: 2", "to": "Patrimonio tur\u00edstico en provincias argentinas", "width": 2}, {"from": "Planificaci\u00f3n y Gesti\u00f3n Territorial del Turismo", "title": "Frecuencia: 1", "to": "Turismo y comunicaci\u00f3n en ciudades", "width": 1}, {"from": "Planificaci\u00f3n y Gesti\u00f3n Territorial del Turismo", "title": "Frecuencia: 2", "to": "Patrimonio cultural y su puesta en valor", "width": 2}, {"from": "Planificaci\u00f3n y Gesti\u00f3n Territorial del Turismo", "title": "Frecuencia: 1", "to": "Turismo rural y accesibilidad en parques nacionales", "width": 1}, {"from": "Planificaci\u00f3n de los Recursos Turisticos y Medio Ambiente", "title": "Frecuencia: 4", "to": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "width": 4}, {"from": "Planificaci\u00f3n de los Recursos Turisticos y Medio Ambiente", "title": "Frecuencia: 6", "to": "Turismo cultural y desarrollo local", "width": 6}, {"from": "Planificaci\u00f3n de los Recursos Turisticos y Medio Ambiente", "title": "Frecuencia: 15", "to": "Oferta de turismo rural y urbano", "width": 15}, {"from": "Planificaci\u00f3n de los Recursos Turisticos y Medio Ambiente", "title": "Frecuencia: 2", "to": "Patrimonio tur\u00edstico en provincias argentinas", "width": 2}, {"from": "Planificaci\u00f3n de los Recursos Turisticos y Medio Ambiente", "title": "Frecuencia: 8", "to": "An\u00e1lisis de turismo cultural y patrimonial", "width": 8}, {"from": "Planificaci\u00f3n de los Recursos Turisticos y Medio Ambiente", "title": "Frecuencia: 4", "to": "Calidad percibida en servicios tur\u00edsticos", "width": 4}, {"from": "Planificaci\u00f3n de los Recursos Turisticos y Medio Ambiente", "title": "Frecuencia: 3", "to": "Espacios culturales y desarrollo tur\u00edstico", "width": 3}, {"from": "Planificaci\u00f3n de los Recursos Turisticos y Medio Ambiente", "title": "Frecuencia: 2", "to": "Turismo y comunicaci\u00f3n en ciudades", "width": 2}, {"from": "Planificaci\u00f3n de los Recursos Turisticos y Medio Ambiente", "title": "Frecuencia: 7", "to": "Turismo ferroviario y patrimonio urbano", "width": 7}, {"from": "Planificaci\u00f3n de los Recursos Turisticos y Medio Ambiente", "title": "Frecuencia: 3", "to": "Turismo de eventos y destinos costeros", "width": 3}, {"from": "Planificaci\u00f3n de los Recursos Turisticos y Medio Ambiente", "title": "Frecuencia: 2", "to": "Patrimonio cultural y su puesta en valor", "width": 2}, {"from": "Planificaci\u00f3n de los Recursos Turisticos y Medio Ambiente", "title": "Frecuencia: 2", "to": "Revalorizaci\u00f3n del patrimonio cultural e hist\u00f3rico", "width": 2}, {"from": "Planificaci\u00f3n de los Recursos Turisticos y Medio Ambiente", "title": "Frecuencia: 2", "to": "Turismo alternativo y cicloturismo", "width": 2}, {"from": "Planificaci\u00f3n y Gesti\u00f3n de Empresas Tur\u00edsticas", "title": "Frecuencia: 8", "to": "An\u00e1lisis de turismo cultural y patrimonial", "width": 8}, {"from": "Planificaci\u00f3n y Gesti\u00f3n de Empresas Tur\u00edsticas", "title": "Frecuencia: 5", "to": "Patrimonio tur\u00edstico en provincias argentinas", "width": 5}, {"from": "Planificaci\u00f3n y Gesti\u00f3n de Empresas Tur\u00edsticas", "title": "Frecuencia: 7", "to": "Turismo cultural y desarrollo local", "width": 7}, {"from": "Planificaci\u00f3n y Gesti\u00f3n de Empresas Tur\u00edsticas", "title": "Frecuencia: 1", "to": "Turismo rural y accesibilidad en parques nacionales", "width": 1}, {"from": "Planificaci\u00f3n y Gesti\u00f3n de Empresas Tur\u00edsticas", "title": "Frecuencia: 6", "to": "Espacios culturales y desarrollo tur\u00edstico", "width": 6}, {"from": "Planificaci\u00f3n y Gesti\u00f3n de Empresas Tur\u00edsticas", "title": "Frecuencia: 5", "to": "Turismo alternativo y cicloturismo", "width": 5}, {"from": "Planificaci\u00f3n y Gesti\u00f3n de Empresas Tur\u00edsticas", "title": "Frecuencia: 1", "to": "Patrimonio cultural y su puesta en valor", "width": 1}, {"from": "Planificaci\u00f3n y Gesti\u00f3n de Empresas Tur\u00edsticas", "title": "Frecuencia: 3", "to": "Turismo ferroviario y patrimonio urbano", "width": 3}, {"from": "Planificaci\u00f3n y Gesti\u00f3n de Empresas Tur\u00edsticas", "title": "Frecuencia: 11", "to": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "width": 11}, {"from": "Planificaci\u00f3n y Gesti\u00f3n de Empresas Tur\u00edsticas", "title": "Frecuencia: 5", "to": "Turismo y comunicaci\u00f3n en ciudades", "width": 5}, {"from": "Planificaci\u00f3n y Gesti\u00f3n de Empresas Tur\u00edsticas", "title": "Frecuencia: 11", "to": "Oferta de turismo rural y urbano", "width": 11}, {"from": "Planificaci\u00f3n y Gesti\u00f3n de Empresas Tur\u00edsticas", "title": "Frecuencia: 4", "to": "Calidad percibida en servicios tur\u00edsticos", "width": 4}, {"from": "Planificaci\u00f3n y Gesti\u00f3n de Empresas Tur\u00edsticas", "title": "Frecuencia: 2", "to": "Turismo de eventos y destinos costeros", "width": 2}, {"from": "Gesti\u00f3n y Administraci\u00f3n de Empresas Turisticas", "title": "Frecuencia: 1", "to": "Patrimonio cultural y su puesta en valor", "width": 1}, {"from": "Gesti\u00f3n y Administraci\u00f3n de Empresas Turisticas", "title": "Frecuencia: 2", "to": "Turismo de eventos y destinos costeros", "width": 2}, {"from": "Gesti\u00f3n y Administraci\u00f3n de Empresas Turisticas", "title": "Frecuencia: 2", "to": "An\u00e1lisis de turismo cultural y patrimonial", "width": 2}, {"from": "Gesti\u00f3n y Administraci\u00f3n de Empresas Turisticas", "title": "Frecuencia: 1", "to": "Turismo cultural y desarrollo local", "width": 1}, {"from": "Gesti\u00f3n y Administraci\u00f3n de Empresas Turisticas", "title": "Frecuencia: 1", "to": "Turismo rural y accesibilidad en parques nacionales", "width": 1}, {"from": "Gesti\u00f3n y Administraci\u00f3n de Empresas Turisticas", "title": "Frecuencia: 1", "to": "Turismo y comunicaci\u00f3n en ciudades", "width": 1}, {"from": "Gesti\u00f3n y Administraci\u00f3n de Empresas Turisticas", "title": "Frecuencia: 2", "to": "Desarrollo local y an\u00e1lisis de destinos tur\u00edsticos", "width": 2}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+        <footer class="text-center mt-8 text-slate-500 text-sm">
+            <p>Resultados correspondientes al trabajo final de carrera de la Especialización en Big Data y Análisis de Datos Estratégicos - UCASAL</p>
+            <p>© 2025 - “Un viaje por la producción académica universitaria: Tesinas de la Licenciatura en Turismo del Departamento de Geografía y Turismo de la Universidad Nacional del Sur, provincia de Buenos Aires”</p>
+        </footer>
+        <h5 style="text-align:center; color:#2c3e50;">Autora: Lic. Badano María Candela</h5>
+    </body>
+</html>
